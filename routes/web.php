@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,13 +11,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 
 Auth::routes();
 
 Route::get('/', 'BlogController@index');
+// Route::get('/isi_post', function () {
+//     return view('blog.isi_post');
+// });
 
+// menggunakan URL yang sudah slug
+Route::get('/isi_post/{slug}', 'BlogController@isi_blog')->name('blog.isi');
 
 Route::group(['middleware' => 'auth'], function () {
+
     Route::get('/home', 'HomeController@index')->name('home');
 
     Route::resource('/category', 'CategoryController');
