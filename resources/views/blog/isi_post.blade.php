@@ -4,7 +4,7 @@
     @foreach ($data as $isi_post)
     <div id="post-header" class="page-header">
         <div class="page-header-bg" 
-        style="background-image: url( {{asset($isi_post->gambar)}} ); background-size: cover;" data-stellar-background-ratio="0.5"></div>
+        style="background-image: url( {{asset($isi_post->gambar)}} );" data-stellar-background-ratio="0.5"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-10">
@@ -26,7 +26,7 @@
 
     <div class="col-md-8 hot-post-left">
     <div class="section-row">
-        {{$isi_post->content}}
+        {!!$isi_post->content!!}
     </div>
     @endforeach
     </div>
